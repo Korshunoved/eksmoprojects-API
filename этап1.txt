@@ -7,3 +7,19 @@ $usewrgroupid = array(28);//пруппа юзера от партнера
 
 //ID групы партнеров
 $usewrgroupid = '27';
+
+http://korshux4.bget.ru/api/v3/privat/auth.php?USER_LOGIN=korshunoved&USER_PASS=korshunoved  -- верна€ авторизаци€
+
+http://korshux4.bget.ru/api/v3/privat/auth.php?USER_LOGIN=korsh&USER_PASS=kors  -- авторизаци€ с неверными данными
+
+http://korshux4.bget.ru/api/v3/?action=add_user&key=24094c386274aa6a0222372911e66148  --- попытка добавить пустого юзера
+
+
+http://korshux4.bget.ru/api/v3/?action=add_user&user_login=Тexample2Т&user_pass=Тexample2Т&user_region=Т630090Т&user_mail=Тtest@test.ru2Т&key=24094c386274aa6a0222372911e66148 -- рег
+
+http://korshux4.bget.ru/api/v3/?action=add_user&user_login=Тexample222Т&user_pass=Тexample222Т&user_region=Т630090Т&user_mail=Тtest@test.ru2Т&key=24094c386274aa6a0222372911e66148 -- совпадают мейлы
+
+http://korshux4.bget.ru/api/v3/?action=get_address&user_id=4325&key=24094c386274aa6a0222372911e66148  -- пустой запрос...ответ лож
+
+
+http://korshux4.bget.ru/api/v3/?action=get_address&user_id=4325&city_id=234534&street=ТтерешковойТ&house=Т5аТ&app=Т565Т&&key=24094c386274aa6a0222372911e66148 -- верные данные
