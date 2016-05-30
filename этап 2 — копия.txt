@@ -1,0 +1,55 @@
+﻿установка этапа 2
+
+- получение цены товара
+- корзина создание
+- корзина удаление
+- корзина добавление
+
+- востоновление пароля
+
+
+
+этап 2 пердусматеривает что есть установленый этап 1
+
+для пользователей создаем новые поля 
+
+ 
+Получать/не получатьтовары со скидкой  - UF_P_SKI - тип поля да/нет
+Промо коды. (Да/Нет) -  UF_P_PROMO - тип поля да/нет
+индивидуальную наценку % - UF_NACEN - тип поля цисло
+
+
+Создаем 2 типа почтовых событий и под них шалоны
+
+P_SEND_PASS_USER - для отправки логина пароля
+
+
+От кого:#DEFAULT_EMAIL_FROM#
+Кому:#EMAIL#
+
+Логин - #LOGIN#
+Пароль - #PASSW#
+
+
+
+
+/************ТЕСТЫ******************/
+
+НЕ ЗАБЫТЬ!  если у юзера отключены коды или скидки то они не учитываються перед тестом убедитесь что галочки стоят у партнера
+
+апи сделано с учетом что в переменнную prop может быть обавлены xml_id  но приоритет по GUID 
+
+1- Получкние цены на товара
+http://korshux4.bget.ru/api/v3/?action=get_price&prop=xml_id&value=57af1c2f-d1f2-4ba4-abba-185c77179dcb&promo=AST-11Hu4LrmkO&key=КЛЮЧ   - верный
+http://korshux4.bget.ru/api/v3/?action=get_price&prop=xml_id&value=57af1c2f-d1f2-4ba4-abba-185c77179dcb&promo=kO&key=КЛЮЧ  - с неверным купон
+http://korshux4.bget.ru/api/v3/?action=get_price&prop=xml_id&value=57-d1f2-4ba4-abba-185c77179dcb&promo=kO&key=КЛЮЧ - товара не существует
+
+2- Добавление в корзину
+стоят реальные купон и скидка 
+http://korshux4.bget.ru/api/v3/?action=open_cart&prop=xml_id&value=57af1c2f-d1f2-4ba4-abba-185c77179dcb,dec335ae-6add-4735-8e71-d33f5aa33606&promo=AST-11Hu4LrmkO&action_id=71&key=КЛЮЧ
+
+3-добавить в корзину
+http://korshux4.bget.ru/api/v3/?action=add_cart&cart_id=НОМЕР_КОЗИНЫ&prop=xml_id&value=a7c2dd9e-0ffd-4247-ae90-a4f42e97fdd8&key=КЛЮЧ
+4-удаленее
+
+http://korshux4.bget.ru/api/v3/?action=remove_cart&prop=xml_id&cart_id=НОМЕР_КОРЗИНЫ&value=dec335ae-6add-4735-8e71-d33f5aa33606&key=КЛЮЧ
